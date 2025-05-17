@@ -124,7 +124,12 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <ServiceCard title={service.title} description={service.description} image={service.image} />
+                <ServiceCard
+                  title={service.title}
+                  description={service.description}
+                  image={service.image}
+                  slug={service.slug}
+                />
               </motion.div>
             ))}
           </div>
@@ -404,6 +409,7 @@ const services = [
       "Group CMR brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops and cabinets, delivering exceptional value at the best prices.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1_huda6f97f0d3c02a210c242ae1377bb3d0_13926954_2000x0_resize_q75_h2_lanczos-PHGUPTuM1xtEXMH9nWAt8vlD7jCAVC.webp",
+    slug: "kitchen-remodeling",
   },
   {
     title: "Countertops and Cabinets",
@@ -411,24 +417,28 @@ const services = [
       "Explore our wide range of high-quality countertops and cabinets designed to elevate the aesthetics and functionality of your kitchen.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1_hu0dbc26e62ba825c13a485aa2c3a878b6_25806228_1000x0_resize_q90_h2_lanczos_3-wLKF88Pl9hhRikokpbVws9lTA3ux2l.webp",
+    slug: "countertops-cabinets",
   },
   {
     title: "Interior Design",
     description:
       "Transform your home interior with our expert design services. We specialize in creating functional and stylish spaces that reflect your personality.",
     image: "/images/interior-design.png",
+    slug: "interior-design",
   },
   {
     title: "Flooring Solutions",
     description:
       "Discover our premium flooring solutions that combine elegance and durability. From hardwood to laminate, we offer diverse selection options.",
     image: "/images/flooring-samples.png",
+    slug: "flooring-solutions",
   },
   {
     title: "Bathroom Renovation",
     description:
       "Experience luxury and comfort with our custom bathroom renovation services. We ensure that every aspect of your bathroom exudes elegance.",
     image: "/images/modern-bathroom.png",
+    slug: "bathroom-renovation",
   },
 ]
 

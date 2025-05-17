@@ -10,9 +10,13 @@ interface ServiceCardProps {
   title: string
   description: string
   image: string
+  slug?: string
 }
 
-export default function ServiceCard({ title, description, image }: ServiceCardProps) {
+export default function ServiceCard({ title, description, image, slug }: ServiceCardProps) {
+  // Générer un slug par défaut si aucun n'est fourni
+  const linkSlug = slug || title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and")
+
   return (
     <Card className="overflow-hidden border-0 shadow-md hover:shadow-lg transition-all h-full">
       <motion.div
@@ -27,7 +31,7 @@ export default function ServiceCard({ title, description, image }: ServiceCardPr
         <p className="text-gray-600 mb-4 flex-grow">{description}</p>
         <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
           <Link
-            href={`/services/${title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and")}`}
+            href={`/services/${linkSlug}`}
             className="inline-flex items-center text-black font-medium hover:underline"
           >
             Learn more <ChevronRight className="w-4 h-4 ml-1" />
