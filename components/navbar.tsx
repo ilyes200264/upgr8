@@ -98,10 +98,13 @@ export default function Navbar() {
             >
               CAREERS
             </Link>
-            <Link href="#contact">
+            <Link href="/get-a-quote">
               <Button
-                variant={isScrolled ? "default" : "outline"}
-                className={isScrolled ? "" : "text-white border-white hover:bg-white hover:text-black"}
+                className={
+                  isScrolled
+                    ? "bg-black text-white hover:bg-gray-800 border-0"
+                    : "bg-white text-black hover:bg-gray-100 hover:text-black border-0"
+                }
               >
                 Get A Free Quote
               </Button>
@@ -120,62 +123,56 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden pt-4 pb-6">
-            <div className="flex flex-col space-y-4">
+          <nav className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fadeIn">
+            <div className="flex flex-col space-y-4 p-6 max-h-[80vh] overflow-y-auto">
               <Link
                 href="/"
-                className="font-medium text-black hover:text-gray-700 transition-colors"
+                className="font-medium text-black hover:text-gray-700 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 HOME
               </Link>
               <Link
                 href="/about"
-                className="font-medium text-black hover:text-gray-700 transition-colors"
+                className="font-medium text-black hover:text-gray-700 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 ABOUT US
               </Link>
-              <div>
-                <Link
-                  href="/services"
-                  className="font-medium text-black hover:text-gray-700 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  SERVICES
-                </Link>
-                <div className="pl-4 mt-2 space-y-2">
+              <div className="py-2">
+                <div className="font-medium text-black mb-2">SERVICES</div>
+                <div className="pl-4 space-y-3">
                   <Link
                     href="/services/kitchen-remodeling"
-                    className="block font-medium text-gray-600 hover:text-black transition-colors"
+                    className="block font-medium text-gray-600 hover:text-black transition-colors py-1"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Kitchen Remodeling
                   </Link>
                   <Link
                     href="/services/countertops-cabinets"
-                    className="block font-medium text-gray-600 hover:text-black transition-colors"
+                    className="block font-medium text-gray-600 hover:text-black transition-colors py-1"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Countertops & Cabinets
                   </Link>
                   <Link
                     href="/services/interior-design"
-                    className="block font-medium text-gray-600 hover:text-black transition-colors"
+                    className="block font-medium text-gray-600 hover:text-black transition-colors py-1"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Interior Design
                   </Link>
                   <Link
                     href="/services/flooring-solutions"
-                    className="block font-medium text-gray-600 hover:text-black transition-colors"
+                    className="block font-medium text-gray-600 hover:text-black transition-colors py-1"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Flooring Solutions
                   </Link>
                   <Link
                     href="/services/bathroom-renovation"
-                    className="block font-medium text-gray-600 hover:text-black transition-colors"
+                    className="block font-medium text-gray-600 hover:text-black transition-colors py-1"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Bathroom Renovation
@@ -184,21 +181,25 @@ export default function Navbar() {
               </div>
               <Link
                 href="/gallery"
-                className="font-medium text-black hover:text-gray-700 transition-colors"
+                className="font-medium text-black hover:text-gray-700 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 GALLERY
               </Link>
               <Link
                 href="/careers"
-                className="font-medium text-black hover:text-gray-700 transition-colors"
+                className="font-medium text-black hover:text-gray-700 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 CAREERS
               </Link>
-              <Link href="#contact" onClick={() => setIsMenuOpen(false)}>
-                <Button className="w-full">Get A Free Quote</Button>
-              </Link>
+              <div className="pt-2">
+                <Link href="/get-a-quote" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="w-full bg-black text-white hover:bg-gray-800 border-0 py-6 text-base">
+                    Get A Free Quote
+                  </Button>
+                </Link>
+              </div>
             </div>
           </nav>
         )}

@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Upload, Check, Clock, MapPin, Mail, Phone } from "lucide-react"
+import { Upload, Check, MapPin, Mail, Phone } from "lucide-react"
 import { motion } from "framer-motion"
 
 export default function CareersPage() {
@@ -259,51 +259,6 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Current Openings Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center mb-16"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Current Openings
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {openings.map((opening, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
-              >
-                <Card className="border-0 shadow-md hover:shadow-lg transition-shadow h-full">
-                  <CardContent className="p-8 h-full flex flex-col">
-                    <h3 className="text-xl font-semibold mb-3">{opening.title}</h3>
-                    <p className="text-gray-600 mb-4 flex-grow">{opening.description}</p>
-                    <div className="flex items-center text-gray-500 mb-4">
-                      <Clock className="w-4 h-4 mr-2" />
-                      <span>{opening.type}</span>
-                    </div>
-                    <div className="flex items-center text-gray-500 mb-6">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      <span>{opening.location}</span>
-                    </div>
-                    <Button variant="outline" className="w-full">
-                      View Details
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -412,29 +367,5 @@ const whyJoinUs = [
     title: "Work-Life Balance",
     description:
       "We understand the importance of balance. Our flexible work environment supports your professional goals while respecting your personal time and well-being.",
-  },
-]
-
-const openings = [
-  {
-    title: "Kitchen Designer",
-    description:
-      "We're looking for a creative kitchen designer with experience in creating functional and beautiful kitchen spaces. Knowledge of CAD software and current design trends required.",
-    type: "Full-time",
-    location: "Joliette, QC",
-  },
-  {
-    title: "Cabinet Installer",
-    description:
-      "Seeking an experienced cabinet installer with attention to detail and excellent craftsmanship. Must have knowledge of various cabinet types and installation techniques.",
-    type: "Full-time",
-    location: "Joliette, QC",
-  },
-  {
-    title: "Project Manager",
-    description:
-      "Looking for a detail-oriented project manager to oversee kitchen and bathroom renovation projects. Experience in construction management and client communication required.",
-    type: "Full-time",
-    location: "Joliette, QC",
   },
 ]

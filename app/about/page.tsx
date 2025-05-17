@@ -49,48 +49,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Team */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/placeholder.svg?height=200&width=200" alt="Team Member" fill className="object-cover" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">John Doe</h3>
-              <p className="text-gray-600 mb-4">Founder & Lead Designer</p>
-              <p className="text-gray-700">
-                With over 20 years of experience in kitchen design, John leads our creative team with passion and
-                expertise.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/placeholder.svg?height=200&width=200" alt="Team Member" fill className="object-cover" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Jane Smith</h3>
-              <p className="text-gray-600 mb-4">Project Manager</p>
-              <p className="text-gray-700">
-                Jane ensures that every project runs smoothly from concept to completion, with meticulous attention to
-                detail.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/placeholder.svg?height=200&width=200" alt="Team Member" fill className="object-cover" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Robert Johnson</h3>
-              <p className="text-gray-600 mb-4">Master Craftsman</p>
-              <p className="text-gray-700">
-                Robert's craftsmanship and technical expertise ensure that every installation meets our high standards
-                of quality.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Our Process */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
