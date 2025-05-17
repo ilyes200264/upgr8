@@ -19,6 +19,7 @@ export default function BathroomRenovationPage() {
             className="object-cover brightness-[0.85]"
             priority
           />
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.h1

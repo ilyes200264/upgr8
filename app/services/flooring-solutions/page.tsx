@@ -1,7 +1,10 @@
+"use client"
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Check, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export default function FlooringSolutionsPage() {
   return (
@@ -10,22 +13,42 @@ export default function FlooringSolutionsPage() {
       <section className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_hu32c6f63a30c82903d9ae8073d6253fa7_16397667_1000x0_resize_q90_h2_lanczos-PM7Ivo4ilwh8AGn72kz9O6aaGdAIyA.webp"
+            src="/images/flooring-samples.png"
             alt="Flooring Solutions"
             fill
             className="object-cover brightness-[0.85]"
             priority
           />
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Flooring Solutions</h1>
-          <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
+          <motion.h1
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Flooring Solutions
+          </motion.h1>
+          <motion.p
+            className="text-xl text-white mb-8 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             Discover our premium flooring solutions that combine elegance and durability. From hardwood to laminate, we
             offer a diverse selection of flooring options to suit your taste and lifestyle.
-          </p>
-          <Button size="lg" className="bg-white text-black hover:bg-gray-100 hover:text-black">
-            <Link href="/quote">Get A Free Quote</Link>
-          </Button>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <Button size="lg" className="bg-white text-black hover:bg-gray-100 hover:text-black">
+              <Link href="/quote">Get A Free Quote</Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 

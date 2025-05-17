@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Upload, Check, Clock, MapPin, Mail, Phone } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function CareersPage() {
   const [file, setFile] = useState<File | null>(null)
@@ -44,19 +45,32 @@ export default function CareersPage() {
       <section className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PDG_1767_68_69_70_71_Natural-1536x1025.jpg-JwFf4r58prnbYpSHru7r6W7FETaG3h.jpeg"
+            src="/images/woman-designer.png"
             alt="Careers at Group C.M.R"
             fill
             className="object-cover brightness-[0.85]"
             priority
           />
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">CAREERS</h1>
-          <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
+          <motion.h1
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            CAREERS
+          </motion.h1>
+          <motion.p
+            className="text-xl text-white mb-8 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             Join our creative team at Group C.M.R and be at the heart of artisanal innovation. Your talent will not only
             be recognized but celebrated.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -65,42 +79,75 @@ export default function CareersPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold mb-8">Apply Now</h2>
+              <motion.h2
+                className="text-3xl font-bold mb-8"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                Apply Now
+              </motion.h2>
               {isSubmitted ? (
-                <Card className="border-0 shadow-md bg-gray-50">
-                  <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-                      <Check className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl font-semibold mb-4">Application Submitted!</h3>
-                    <p className="text-gray-700 mb-6">
-                      Thank you for your interest in joining Group C.M.R. We have received your application and will
-                      review it shortly. Our team will contact you if your qualifications match our current openings.
-                    </p>
-                    <Button onClick={() => setIsSubmitted(false)}>Submit Another Application</Button>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Card className="border-0 shadow-md bg-gray-50">
+                    <CardContent className="p-8 text-center">
+                      <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
+                        <Check className="w-8 h-8" />
+                      </div>
+                      <h3 className="text-2xl font-semibold mb-4">Application Submitted!</h3>
+                      <p className="text-gray-700 mb-6">
+                        Thank you for your interest in joining Group C.M.R. We have received your application and will
+                        review it shortly. Our team will contact you if your qualifications match our current openings.
+                      </p>
+                      <Button onClick={() => setIsSubmitted(false)}>Submit Another Application</Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
+                  <motion.div
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <Label htmlFor="name" className="text-base">
                       * Name:
                     </Label>
                     <Input id="name" required />
-                  </div>
-                  <div className="space-y-2">
+                  </motion.div>
+                  <motion.div
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
                     <Label htmlFor="email" className="text-base">
                       * Email:
                     </Label>
                     <Input id="email" type="email" required />
-                  </div>
-                  <div className="space-y-2">
+                  </motion.div>
+                  <motion.div
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                  >
                     <Label htmlFor="phone" className="text-base">
                       * Phone:
                     </Label>
                     <Input id="phone" type="tel" required />
-                  </div>
-                  <div className="space-y-2">
+                  </motion.div>
+                  <motion.div
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                  >
                     <Label htmlFor="message" className="text-base">
                       Message:
                     </Label>
@@ -109,8 +156,13 @@ export default function CareersPage() {
                       rows={4}
                       placeholder="Tell us about your experience and why you'd like to join our team"
                     />
-                  </div>
-                  <div className="space-y-2">
+                  </motion.div>
+                  <motion.div
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
+                  >
                     <Label className="text-base">Attachment:</Label>
                     <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:bg-gray-50 transition-colors">
                       <input
@@ -135,52 +187,72 @@ export default function CareersPage() {
                         )}
                       </label>
                     </div>
-                  </div>
-                  <Button type="submit" className="w-full md:w-auto px-8" disabled={isSubmitting}>
-                    {isSubmitting ? "Submitting..." : "Apply Now"}
-                  </Button>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.5 }}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    <Button type="submit" className="w-full md:w-auto px-8" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                        <span className="flex items-center">
+                          <svg
+                            className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                          </svg>
+                          Submitting...
+                        </span>
+                      ) : (
+                        "Apply Now"
+                      )}
+                    </Button>
+                  </motion.div>
                 </form>
               )}
             </div>
             <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold mb-8">Why Join Us</h2>
+              <motion.h2
+                className="text-3xl font-bold mb-8"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                Why Join Us
+              </motion.h2>
               <div className="space-y-6">
-                <Card className="border-0 shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Innovative Environment</h3>
-                    <p className="text-gray-700">
-                      At Group C.M.R, we foster a culture of innovation and creativity. Our team members are encouraged
-                      to bring fresh ideas and perspectives to every project.
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card className="border-0 shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Professional Growth</h3>
-                    <p className="text-gray-700">
-                      We believe in investing in our team's development. Join us to enhance your skills, learn from
-                      industry experts, and advance your career in kitchen and home remodeling.
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card className="border-0 shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Collaborative Team</h3>
-                    <p className="text-gray-700">
-                      Our success is built on teamwork and collaboration. You'll work alongside talented professionals
-                      who share your passion for quality craftsmanship and exceptional design.
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card className="border-0 shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Work-Life Balance</h3>
-                    <p className="text-gray-700">
-                      We understand the importance of balance. Our flexible work environment supports your professional
-                      goals while respecting your personal time and well-being.
-                    </p>
-                  </CardContent>
-                </Card>
+                {whyJoinUs.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="border-0 shadow-md">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
+                        <p className="text-gray-700">{item.description}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
@@ -190,68 +262,44 @@ export default function CareersPage() {
       {/* Current Openings Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Current Openings</h2>
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Current Openings
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-3">Kitchen Designer</h3>
-                <p className="text-gray-600 mb-4">
-                  We're looking for a creative kitchen designer with experience in creating functional and beautiful
-                  kitchen spaces. Knowledge of CAD software and current design trends required.
-                </p>
-                <div className="flex items-center text-gray-500 mb-4">
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span>Full-time</span>
-                </div>
-                <div className="flex items-center text-gray-500 mb-6">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  <span>Joliette, QC</span>
-                </div>
-                <Button variant="outline" className="w-full">
-                  View Details
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-3">Cabinet Installer</h3>
-                <p className="text-gray-600 mb-4">
-                  Seeking an experienced cabinet installer with attention to detail and excellent craftsmanship. Must
-                  have knowledge of various cabinet types and installation techniques.
-                </p>
-                <div className="flex items-center text-gray-500 mb-4">
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span>Full-time</span>
-                </div>
-                <div className="flex items-center text-gray-500 mb-6">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  <span>Joliette, QC</span>
-                </div>
-                <Button variant="outline" className="w-full">
-                  View Details
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-3">Project Manager</h3>
-                <p className="text-gray-600 mb-4">
-                  Looking for a detail-oriented project manager to oversee kitchen and bathroom renovation projects.
-                  Experience in construction management and client communication required.
-                </p>
-                <div className="flex items-center text-gray-500 mb-4">
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span>Full-time</span>
-                </div>
-                <div className="flex items-center text-gray-500 mb-6">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  <span>Joliette, QC</span>
-                </div>
-                <Button variant="outline" className="w-full">
-                  View Details
-                </Button>
-              </CardContent>
-            </Card>
+            {openings.map((opening, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -10, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
+              >
+                <Card className="border-0 shadow-md hover:shadow-lg transition-shadow h-full">
+                  <CardContent className="p-8 h-full flex flex-col">
+                    <h3 className="text-xl font-semibold mb-3">{opening.title}</h3>
+                    <p className="text-gray-600 mb-4 flex-grow">{opening.description}</p>
+                    <div className="flex items-center text-gray-500 mb-4">
+                      <Clock className="w-4 h-4 mr-2" />
+                      <span>{opening.type}</span>
+                    </div>
+                    <div className="flex items-center text-gray-500 mb-6">
+                      <MapPin className="w-4 h-4 mr-2" />
+                      <span>{opening.location}</span>
+                    </div>
+                    <Button variant="outline" className="w-full">
+                      View Details
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -259,8 +307,22 @@ export default function CareersPage() {
       {/* Contact Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Contact Our HR Team</h2>
-          <div className="max-w-2xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Contact Our HR Team
+          </motion.h2>
+          <motion.div
+            className="max-w-2xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <div className="space-y-6">
               <div className="flex items-start">
                 <Mail className="w-6 h-6 text-black mr-4 mt-1" />
@@ -284,26 +346,95 @@ export default function CareersPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-black text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Join Our Team?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Apply today and be part of a team that values craftsmanship, innovation, and customer satisfaction.
-          </p>
-          <Button
-            size="lg"
-            className="bg-white text-black hover:bg-gray-100"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            Apply Now
-          </Button>
+            Ready to Join Our Team?
+          </motion.h2>
+          <motion.p
+            className="text-xl mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Apply today and be part of a team that values craftsmanship, innovation, and customer satisfaction.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <Button
+              size="lg"
+              className="bg-white text-black hover:bg-gray-100"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Apply Now
+            </Button>
+          </motion.div>
         </div>
       </section>
     </div>
   )
 }
+
+const whyJoinUs = [
+  {
+    title: "Innovative Environment",
+    description:
+      "At Group C.M.R, we foster a culture of innovation and creativity. Our team members are encouraged to bring fresh ideas and perspectives to every project.",
+  },
+  {
+    title: "Professional Growth",
+    description:
+      "We believe in investing in our team's development. Join us to enhance your skills, learn from industry experts, and advance your career in kitchen and home remodeling.",
+  },
+  {
+    title: "Collaborative Team",
+    description:
+      "Our success is built on teamwork and collaboration. You'll work alongside talented professionals who share your passion for quality craftsmanship and exceptional design.",
+  },
+  {
+    title: "Work-Life Balance",
+    description:
+      "We understand the importance of balance. Our flexible work environment supports your professional goals while respecting your personal time and well-being.",
+  },
+]
+
+const openings = [
+  {
+    title: "Kitchen Designer",
+    description:
+      "We're looking for a creative kitchen designer with experience in creating functional and beautiful kitchen spaces. Knowledge of CAD software and current design trends required.",
+    type: "Full-time",
+    location: "Joliette, QC",
+  },
+  {
+    title: "Cabinet Installer",
+    description:
+      "Seeking an experienced cabinet installer with attention to detail and excellent craftsmanship. Must have knowledge of various cabinet types and installation techniques.",
+    type: "Full-time",
+    location: "Joliette, QC",
+  },
+  {
+    title: "Project Manager",
+    description:
+      "Looking for a detail-oriented project manager to oversee kitchen and bathroom renovation projects. Experience in construction management and client communication required.",
+    type: "Full-time",
+    location: "Joliette, QC",
+  },
+]

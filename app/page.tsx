@@ -9,22 +9,63 @@ import ServiceCard from "@/components/service-card"
 import ExpertiseCard from "@/components/expertise-card"
 import ContactForm from "@/components/contact-form"
 import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
 
 export default function Home() {
+  const [videoError, setVideoError] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
+
+  useEffect(() => {
+    // Définir un délai pour vérifier si la vidéo s'est chargée
+    const timer = setTimeout(() => {
+      if (!videoLoaded) {
+        console.log("La vidéo n'a pas pu être chargée dans le délai imparti")
+        setVideoError(true)
+      }
+    }, 5000) // 5 secondes pour charger la vidéo
+
+    return () => clearTimeout(timer)
+  }, [videoLoaded])
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section with Video Background or Fallback Image */}
       <section className="relative w-full h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1_huda6f97f0d3c02a210c242ae1377bb3d0_13926954_2000x0_resize_q75_h2_lanczos-PHGUPTuM1xtEXMH9nWAt8vlD7jCAVC.webp"
-            alt="Luxury Kitchen Design"
-            fill
-            className="object-cover brightness-[0.85]"
-            priority
-          />
+          {!videoError ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute w-full h-full object-cover"
+              onError={() => {
+                console.log("Erreur lors du chargement de la vidéo")
+                setVideoError(true)
+              }}
+              onLoadedData={() => {
+                console.log("Vidéo chargée avec succès")
+                setVideoLoaded(true)
+              }}
+            >
+              <source
+                src="https://ztp4ufxabgjaft6x.public.blob.vercel-storage.com/7578540-uhd_3840_2160_30fps-Me7AhW2WdkPoYPl8J1YpaLVEpIJlMs.mp4"
+                type="video/mp4"
+              />
+              Votre navigateur ne prend pas en charge la lecture de vidéos.
+            </video>
+          ) : (
+            <Image
+              src="/images/modern-kitchen.png"
+              alt="Group C.M.R Background"
+              fill
+              className="object-cover"
+              priority
+            />
+          )}
         </div>
-        <div className="container relative z-10 mx-auto px-4 text-center">
+        <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+        <div className="container relative z-20 mx-auto px-4 text-center">
           <motion.h1
             className="text-4xl md:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: -50 }}
@@ -102,7 +143,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_huf29b621bda1ff3cde227c3f265269e47_12946539_1000x0_resize_q90_h2_lanczos-c0WhlSd0a5RKD9bDJPQdbtIVYMvaFd.webp"
+                src="/images/modern-kitchen.png"
                 alt="Luxury Kitchen"
                 width={600}
                 height={400}
@@ -146,6 +187,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Reste du code inchangé... */}
       {/* Expertise Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -307,7 +349,7 @@ export default function Home() {
               <div className="mt-8">
                 <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.3 }}>
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videoframe_7673-QUf37KuZlHdqOwc4blXKV7ANd4Njo2.png"
+                    src="/images/interior-design.png"
                     alt="Office Location"
                     width={500}
                     height={300}
@@ -374,14 +416,13 @@ const services = [
     title: "Interior Design",
     description:
       "Transform your home interior with our expert design services. We specialize in creating functional and stylish spaces that reflect your personality.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videoframe_7673-QUf37KuZlHdqOwc4blXKV7ANd4Njo2.png",
+    image: "/images/interior-design.png",
   },
   {
     title: "Flooring Solutions",
     description:
       "Discover our premium flooring solutions that combine elegance and durability. From hardwood to laminate, we offer diverse selection options.",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_hu32c6f63a30c82903d9ae8073d6253fa7_16397667_1000x0_resize_q90_h2_lanczos-PM7Ivo4ilwh8AGn72kz9O6aaGdAIyA.webp",
+    image: "/images/flooring-samples.png",
   },
   {
     title: "Bathroom Renovation",
@@ -442,8 +483,8 @@ const galleryImages = [
     alt: "Kitchen Design",
   },
   {
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1_hu0dbc26e62ba825c13a485aa2c3a878b6_25806228_1000x0_resize_q90_h2_lanczos_3-wLKF88Pl9hhRikokpbVws9lTA3ux2l.webp",
-    alt: "Kitchen Design",
+    src: "/images/modern-kitchen.png",
+    alt: "Modern Kitchen Design",
   },
   {
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_huf29b621bda1ff3cde227c3f265269e47_12946539_1000x0_resize_q90_h2_lanczos-c0WhlSd0a5RKD9bDJPQdbtIVYMvaFd.webp",
@@ -454,8 +495,8 @@ const galleryImages = [
     alt: "Kitchen Design",
   },
   {
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PDG_1767_68_69_70_71_Natural-1536x1025.jpg-JwFf4r58prnbYpSHru7r6W7FETaG3h.jpeg",
-    alt: "Living Room Design",
+    src: "/images/interior-design.png",
+    alt: "Interior Design",
   },
   {
     src: "/images/modern-bathroom.png",

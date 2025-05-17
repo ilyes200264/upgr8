@@ -6,11 +6,20 @@ import { motion } from "framer-motion"
 export default function GalleryPage() {
   return (
     <div className="pt-24">
-      {/* Gallery Hero */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
+      {/* Gallery Hero with Modern Bathroom Background */}
+      <section className="relative py-20 bg-gray-50">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/modern-bathroom.png"
+            alt="Modern Bathroom Design"
+            fill
+            className="object-cover brightness-[0.85]"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+        <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -18,7 +27,7 @@ export default function GalleryPage() {
             Our Gallery
           </motion.h1>
           <motion.p
-            className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto"
+            className="text-xl text-white mb-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -125,8 +134,8 @@ const galleryImages = [
     alt: "Modern Living Space",
   },
   {
-    src: "/images/modern-bathroom.png",
-    alt: "Modern Bathroom Design",
+    src: "/images/modern-kitchen.png",
+    alt: "Modern Kitchen Design",
   },
 ]
 

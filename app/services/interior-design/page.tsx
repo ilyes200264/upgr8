@@ -1,7 +1,10 @@
+"use client"
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Check, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export default function InteriorDesignPage() {
   return (
@@ -10,22 +13,42 @@ export default function InteriorDesignPage() {
       <section className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/videoframe_7673-QUf37KuZlHdqOwc4blXKV7ANd4Njo2.png"
+            src="/images/interior-design.png"
             alt="Interior Design"
             fill
             className="object-cover brightness-[0.85]"
             priority
           />
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Interior Design</h1>
-          <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
+          <motion.h1
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Interior Design
+          </motion.h1>
+          <motion.p
+            className="text-xl text-white mb-8 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             Transform your home with our expert interior design services. We create functional, stylish spaces that
             reflect your personality and enhance your lifestyle.
-          </p>
-          <Button size="lg" className="bg-white text-black hover:bg-gray-100 hover:text-black">
-            <Link href="/quote">Get A Free Quote</Link>
-          </Button>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <Button size="lg" className="bg-white text-black hover:bg-gray-100 hover:text-black">
+              <Link href="/quote">Get A Free Quote</Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 

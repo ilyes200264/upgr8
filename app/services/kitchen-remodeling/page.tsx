@@ -16,6 +16,7 @@ export default function KitchenRemodelingPage() {
             className="object-cover brightness-[0.85]"
             priority
           />
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Kitchen Remodeling</h1>
@@ -85,7 +86,7 @@ export default function KitchenRemodelingPage() {
             </div>
             <div className="lg:w-1/2">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_huf29b621bda1ff3cde227c3f265269e47_12946539_1000x0_resize_q90_h2_lanczos-c0WhlSd0a5RKD9bDJPQdbtIVYMvaFd.webp"
+                src="/images/modern-kitchen.png"
                 alt="Kitchen Remodeling"
                 width={600}
                 height={400}
