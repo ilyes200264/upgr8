@@ -26,16 +26,23 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Simulate form submission
-    setTimeout(() => {
-      // Handle form submission logic here
-      console.log("Form submitted:", formData)
-
-      // Reset form
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.firstName + " " + formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          message: formData.message,
+          subject: "Contact Form Submission"
+        })
+      })
+      if (!res.ok) throw new Error("Erreur lors de l'envoi du message.")
       setFormData({
         firstName: "",
         lastName: "",
@@ -44,15 +51,13 @@ export default function ContactForm() {
         address: "",
         message: "",
       })
-
-      setIsSubmitting(false)
       setIsSubmitted(true)
-
-      // Reset submission status after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false)
-      }, 5000)
-    }, 1500)
+      setTimeout(() => setIsSubmitted(false), 5000)
+    } catch (err) {
+      alert("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (

@@ -16,6 +16,12 @@ export default function CareersPage() {
   const [file, setFile] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  })
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -23,20 +29,44 @@ export default function CareersPage() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+    let fileBase64 = null
+    if (file) {
+      fileBase64 = await new Promise<string | null>((resolve) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve(reader.result as string)
+        reader.onerror = () => resolve(null)
+        reader.readAsDataURL(file)
+      })
+    }
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          subject: "Careers Application",
+          file: fileBase64,
+          fileName: file?.name || undefined,
+        })
+      })
+      if (!res.ok) throw new Error("Erreur lors de l'envoi du message.")
       setIsSubmitted(true)
-
-      // Reset form after submission
-      const form = e.target as HTMLFormElement
-      form.reset()
+      setTimeout(() => setIsSubmitted(false), 5000)
+      setFormData({ name: "", email: "", phone: "", message: "" })
       setFile(null)
-    }, 1500)
+    } catch (err) {
+      alert("Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -118,7 +148,7 @@ export default function CareersPage() {
                     <Label htmlFor="name" className="text-base">
                       * Name:
                     </Label>
-                    <Input id="name" required />
+                    <Input id="name" required value={formData.name} onChange={handleInputChange} />
                   </motion.div>
                   <motion.div
                     className="space-y-2"
@@ -129,7 +159,7 @@ export default function CareersPage() {
                     <Label htmlFor="email" className="text-base">
                       * Email:
                     </Label>
-                    <Input id="email" type="email" required />
+                    <Input id="email" type="email" required value={formData.email} onChange={handleInputChange} />
                   </motion.div>
                   <motion.div
                     className="space-y-2"

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -34,8 +35,15 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className={`text-xl font-bold ${isScrolled ? "text-black" : "text-white"}`}>
-            Group C.M.R
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Group C.M.R Logo"
+              width={150}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -66,12 +74,7 @@ export default function Navbar() {
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href="/services/countertops-cabinets" className="w-full">
-                    Countertops & Cabinets
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services/interior-design" className="w-full">
-                    Interior Design
+                    Countertops
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
@@ -154,14 +157,7 @@ export default function Navbar() {
                     className="block font-medium text-gray-600 hover:text-black transition-colors py-1"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Countertops & Cabinets
-                  </Link>
-                  <Link
-                    href="/services/interior-design"
-                    className="block font-medium text-gray-600 hover:text-black transition-colors py-1"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Interior Design
+                    Countertops
                   </Link>
                   <Link
                     href="/services/flooring-solutions"

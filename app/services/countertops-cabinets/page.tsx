@@ -19,7 +19,7 @@ export default function CountertopsCabinetsPage() {
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Countertops & Cabinets</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Countertops</h1>
           <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
             Elevate your kitchen with our premium countertops and custom cabinetry solutions. Quality materials, expert
             craftsmanship, and stunning designs.
@@ -74,7 +74,7 @@ export default function CountertopsCabinetsPage() {
                 </div>
               </div>
               <Button>
-                <Link href="/quote">Request a Quote</Link>
+                <Link href="/countertops/colors">Explore All Colors</Link>
               </Button>
             </div>
             <div className="lg:w-1/2">

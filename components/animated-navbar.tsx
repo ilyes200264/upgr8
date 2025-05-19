@@ -103,7 +103,7 @@ export default function AnimatedNavbar() {
                 dropdown: true,
                 items: [
                   { name: "Kitchen Remodeling", path: "/services/kitchen-remodeling" },
-                  { name: "Countertops & Cabinets", path: "/services/countertops-cabinets" },
+                  { name: "Countertops", path: "/services/countertops-cabinets" },
                   { name: "Interior Design", path: "/services/interior-design" },
                   { name: "Flooring Solutions", path: "/services/flooring-solutions" },
                   { name: "Bathroom Renovation", path: "/services/bathroom-renovation" },
@@ -241,7 +241,7 @@ export default function AnimatedNavbar() {
                       className="block font-medium text-gray-600 hover:text-black transition-colors py-1"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Countertops & Cabinets
+                      Countertops
                     </Link>
                     <Link
                       href="/services/interior-design"

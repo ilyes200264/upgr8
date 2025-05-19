@@ -159,7 +159,7 @@ export default function GetAQuotePage() {
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="countertops" id="countertops" />
                             <Label htmlFor="countertops" className="cursor-pointer">
-                              Countertops & Cabinets
+                              Countertops
                             </Label>
                           </div>
                           <div className="flex items-center space-x-2">
@@ -427,7 +427,7 @@ export default function GetAQuotePage() {
                               <br />
                               Saturday: 10:00 AM - 2:00 PM
                               <br />
-                              Sunday: Closed
+                              Sunday: 10:00 AM - 2:00 PM
                             </p>
                           </div>
                         </div>

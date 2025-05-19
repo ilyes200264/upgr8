@@ -349,7 +349,7 @@ export default function Home() {
                   <Phone className="w-6 h-6 mr-3" />
                   <h3 className="text-xl font-medium">Phone</h3>
                 </div>
-                <p className="text-gray-700 ml-9">438-923-8941</p>
+                <p className="text-gray-700 ml-9">514-583-3465</p>
               </div>
               <div className="mt-8">
                 <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.3 }}>
@@ -412,19 +412,12 @@ const services = [
     slug: "kitchen-remodeling",
   },
   {
-    title: "Countertops and Cabinets",
+    title: "Countertops",
     description:
       "Explore our wide range of high-quality countertops and cabinets designed to elevate the aesthetics and functionality of your kitchen.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1_hu0dbc26e62ba825c13a485aa2c3a878b6_25806228_1000x0_resize_q90_h2_lanczos_3-wLKF88Pl9hhRikokpbVws9lTA3ux2l.webp",
     slug: "countertops-cabinets",
-  },
-  {
-    title: "Interior Design",
-    description:
-      "Transform your home interior with our expert design services. We specialize in creating functional and stylish spaces that reflect your personality.",
-    image: "/images/interior-design.png",
-    slug: "interior-design",
   },
   {
     title: "Flooring Solutions",
