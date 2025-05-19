@@ -165,7 +165,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">About GROUP C.M.R</h2>
               <h3 className="text-xl font-medium mb-4">60 Years of Combined Expertise in Kitchen Remodeling</h3>
               <p className="text-gray-700 mb-6">
-                Group CMR brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops
+                CMR Renovation & Design brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops
                 and cabinets, delivering exceptional value at the best prices. Let us transform your kitchen with
                 unbeatable quality, style, and affordability.
               </p>
@@ -406,7 +406,7 @@ const services = [
   {
     title: "Kitchen Remodeling",
     description:
-      "Group CMR brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops and cabinets, delivering exceptional value at the best prices.",
+      "CMR Renovation & Design brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops and cabinets, delivering exceptional value at the best prices.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1_huda6f97f0d3c02a210c242ae1377bb3d0_13926954_2000x0_resize_q75_h2_lanczos-PHGUPTuM1xtEXMH9nWAt8vlD7jCAVC.webp",
     slug: "kitchen-remodeling",
@@ -465,17 +465,17 @@ const expertise = [
 const testimonials = [
   {
     quote:
-      "Group CMR transformed our kitchen into a stunning space that exceeded our expectations. Their attention to detail and quality craftsmanship is unmatched.",
+      "CMR Renovation & Design transformed our kitchen into a stunning space that exceeded our expectations. Their attention to detail and quality craftsmanship is unmatched.",
     author: "B. GAGNON",
   },
   {
     quote:
-      "We are thrilled with the outcome of our kitchen remodel. Group CMR's professionalism and dedication to customer satisfaction are truly commendable.",
+      "We are thrilled with the outcome of our kitchen remodel. CMR Renovation & Design's professionalism and dedication to customer satisfaction are truly commendable.",
     author: "K. HENNAULT",
   },
   {
     quote:
-      "We highly recommend Group CMR for their top-notch service and affordable yet stylish kitchen solutions. It has been a pleasure working with them.",
+      "We highly recommend CMR Renovation & Design for their top-notch service and affordable yet stylish kitchen solutions. It has been a pleasure working with them.",
     author: "F. LEVESQUE",
   },
 ]

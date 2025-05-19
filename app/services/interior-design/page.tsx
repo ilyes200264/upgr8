@@ -397,7 +397,7 @@ export default function InteriorDesignPage() {
                 </svg>
               </div>
               <p className="text-gray-700 mb-6 italic">
-                "The interior design team at Group CMR transformed our living space beyond our expectations. Their
+                "The interior design team at CMR Renovation & Design transformed our living space beyond our expectations. Their
                 attention to detail and ability to understand our style was impressive."
               </p>
               <p className="font-medium">M. TREMBLAY</p>
@@ -421,7 +421,7 @@ export default function InteriorDesignPage() {
                 </svg>
               </div>
               <p className="text-gray-700 mb-6 italic">
-                "Working with Group CMR's design team was a pleasure from start to finish. They listened to our needs
+                "Working with CMR Renovation & Design's design team was a pleasure from start to finish. They listened to our needs
                 and created a space that perfectly reflects our lifestyle and taste."
               </p>
               <p className="font-medium">S. LAVOIE</p>

@@ -580,17 +580,17 @@ export default function GetAQuotePage() {
 const testimonials = [
   {
     quote:
-      "Group CMR transformed our kitchen into a stunning space that exceeded our expectations. Their attention to detail and quality craftsmanship is unmatched.",
+      "CMR Renovation & Design transformed our kitchen into a stunning space that exceeded our expectations. Their attention to detail and quality craftsmanship is unmatched.",
     author: "B. GAGNON",
   },
   {
     quote:
-      "We are thrilled with the outcome of our kitchen remodel. Group CMR's professionalism and dedication to customer satisfaction are truly commendable.",
+      "We are thrilled with the outcome of our kitchen remodel. CMR Renovation & Design's professionalism and dedication to customer satisfaction are truly commendable.",
     author: "K. HENNAULT",
   },
   {
     quote:
-      "We highly recommend Group CMR for their top-notch service and affordable yet stylish kitchen solutions. It has been a pleasure working with them.",
+      "We highly recommend CMR Renovation & Design for their top-notch service and affordable yet stylish kitchen solutions. It has been a pleasure working with them.",
     author: "F. LEVESQUE",
   },
 ]

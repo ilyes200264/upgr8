@@ -12,7 +12,7 @@ export default function AboutPage() {
               <h1 className="text-4xl md:text-5xl font-bold mb-6">About GROUP C.M.R</h1>
               <h2 className="text-xl font-medium mb-4">60 Years of Combined Expertise in Kitchen Remodeling</h2>
               <p className="text-gray-700 mb-6">
-                Group CMR brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops
+                CMR Renovation & Design brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops
                 and cabinets, delivering exceptional value at the best prices. Let us transform your kitchen with
                 unbeatable quality, style, and affordability.
               </p>

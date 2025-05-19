@@ -37,7 +37,7 @@ export default function KitchenRemodelingPage() {
             <div className="lg:w-1/2">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Expert Kitchen Remodeling Services</h2>
               <p className="text-gray-700 mb-6">
-                Group CMR brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops
+                CMR Renovation & Design brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops
                 and cabinets, delivering exceptional value at the best prices. Let us transform your kitchen with
                 unbeatable quality, style, and affordability.
               </p>

@@ -471,7 +471,7 @@ export default function QuotePage() {
                   </svg>
                 </div>
                 <p className="text-gray-700 mb-6 italic">
-                  "Group CMR transformed our kitchen into a stunning space that exceeded our expectations. Their
+                  "CMR Renovation & Design transformed our kitchen into a stunning space that exceeded our expectations. Their
                   attention to detail and quality craftsmanship is unmatched."
                 </p>
                 <p className="font-medium">B. GAGNON</p>
@@ -498,7 +498,7 @@ export default function QuotePage() {
                   </svg>
                 </div>
                 <p className="text-gray-700 mb-6 italic">
-                  "We are thrilled with the outcome of our kitchen remodel. Group CMR's professionalism and dedication
+                  "We are thrilled with the outcome of our kitchen remodel. CMR Renovation & Design's professionalism and dedication
                   to customer satisfaction are truly commendable."
                 </p>
                 <p className="font-medium">K. HENNAULT</p>
@@ -525,7 +525,7 @@ export default function QuotePage() {
                   </svg>
                 </div>
                 <p className="text-gray-700 mb-6 italic">
-                  "We highly recommend Group CMR for their top-notch service and affordable yet stylish kitchen
+                  "We highly recommend CMR Renovation & Design for their top-notch service and affordable yet stylish kitchen
                   solutions. It has been a pleasure working with them."
                 </p>
                 <p className="font-medium">F. LEVESQUE</p>
