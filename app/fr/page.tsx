@@ -11,13 +11,13 @@ import ContactForm from "@/components/contact-form"
 import { motion } from "framer-motion"
 import { useState } from "react"
 
-export default function Home() {
+export default function HomeFR() {
   const [videoError, setVideoError] = useState(false)
   const [videoLoaded, setVideoLoaded] = useState(false)
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section with Video Background or Fallback Image */}
+      {/* Section Héros avec vidéo de fond ou image de secours */}
       <section className="relative w-full h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           {!videoError ? (
@@ -28,11 +28,9 @@ export default function Home() {
               playsInline
               className="absolute w-full h-full object-cover"
               onError={() => {
-                console.log("Erreur lors du chargement de la vidéo")
                 setVideoError(true)
               }}
               onLoadedData={() => {
-                console.log("Vidéo chargée avec succès")
                 setVideoLoaded(true)
               }}
             >
@@ -45,7 +43,7 @@ export default function Home() {
           ) : (
             <Image
               src="/images/modern-kitchen.png"
-              alt="Group C.M.R Background"
+              alt="Fond CMR Rénovation & Design"
               fill
               className="object-cover"
               priority
@@ -60,7 +58,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            CMR Renovation & Design
+            CMR Rénovation & Design
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl text-white mb-8"
@@ -68,7 +66,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Expertly Designed. Flawlessly Built.
+            Conception experte. Réalisation impeccable.
           </motion.p>
           <motion.h2
             className="text-2xl md:text-4xl font-medium text-white mb-10"
@@ -76,7 +74,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Kitchen & Bathroom Renovation Specialists
+            Spécialistes en rénovation de cuisines & salles de bain
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -85,13 +83,13 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
           >
             <Button size="lg" className="bg-white text-black hover:bg-gray-100 hover:text-black">
-              <Link href="/quote">Get A Free Quote</Link>
+              <Link href="/quote">Obtenir une soumission gratuite</Link>
             </Button>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Section Services */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -101,7 +99,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Our Services
+            Nos services
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -124,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Section À propos */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -137,7 +135,7 @@ export default function Home() {
             >
               <Image
                 src="/images/modern-kitchen.png"
-                alt="Luxury Kitchen"
+                alt="Cuisine de luxe"
                 width={600}
                 height={400}
                 className="rounded-lg object-cover w-full h-[500px]"
@@ -150,12 +148,10 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">About GROUP C.M.R</h2>
-              <h3 className="text-xl font-medium mb-4">60 Years of Combined Expertise in Kitchen Remodeling</h3>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">À propos de CMR</h2>
+              <h3 className="text-xl font-medium mb-4">60 ans d'expertise combinée en rénovation de cuisine</h3>
               <p className="text-gray-700 mb-6">
-                CMR Renovation & Design brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops
-                and cabinets, delivering exceptional value at the best prices. Let us transform your kitchen with
-                unbeatable quality, style, and affordability.
+                CMR Rénovation & Design met à votre service 60 ans d'expertise combinée en rénovation de cuisine. Nous proposons des comptoirs et armoires de haute qualité, offrant une valeur exceptionnelle au meilleur prix. Confiez-nous la transformation de votre cuisine pour une qualité, un style et une accessibilité imbattables.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 {stats.map((stat, index) => (
@@ -172,7 +168,7 @@ export default function Home() {
               </div>
               <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
                 <Button className="w-full md:w-auto">
-                  <Link href="/about">Learn More About Us</Link>
+                  <Link href="/about">En savoir plus</Link>
                 </Button>
               </motion.div>
             </motion.div>
@@ -180,8 +176,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reste du code inchangé... */}
-      {/* Expertise Section */}
+      {/* Section Expertise */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -191,7 +186,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Our Expertise
+            Notre expertise
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {expertise.map((item, index) => (
@@ -210,7 +205,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Section Témoignages */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -220,7 +215,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Client Testimonials
+            Témoignages clients
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -239,7 +234,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Section Galerie */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -249,7 +244,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Our Work
+            Nos réalisations
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {galleryImages.map((image, index) => (
@@ -282,14 +277,14 @@ export default function Home() {
           >
             <Button variant="outline" size="lg">
               <Link href="/gallery" className="flex items-center">
-                View Full Gallery <ArrowRight className="ml-2 w-4 h-4" />
+                Voir toute la galerie <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Section Contact */}
       <section className="py-20 bg-gray-50" id="contact">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -299,7 +294,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Contact Us
+            Nous contacter
           </motion.h2>
           <div className="flex flex-col lg:flex-row gap-12">
             <motion.div
@@ -321,21 +316,21 @@ export default function Home() {
               <div className="mb-8">
                 <div className="flex items-center mb-4">
                   <MapPin className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-medium">Address</h3>
+                  <h3 className="text-xl font-medium">Adresse</h3>
                 </div>
                 <p className="text-gray-700 ml-9">427 RUE CHAMPLAIN, JOLIETTE</p>
               </div>
               <div className="mb-8">
                 <div className="flex items-center mb-4">
                   <Mail className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-medium">Email</h3>
+                  <h3 className="text-xl font-medium">Courriel</h3>
                 </div>
                 <p className="text-gray-700 ml-9">info@groupcmr.com</p>
               </div>
               <div className="mb-8">
                 <div className="flex items-center mb-4">
                   <Phone className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-medium">Phone</h3>
+                  <h3 className="text-xl font-medium">Téléphone</h3>
                 </div>
                 <p className="text-gray-700 ml-9">514-583-3465</p>
               </div>
@@ -343,7 +338,7 @@ export default function Home() {
                 <motion.div whileHover={{ scale: 1.03 }} transition={{ duration: 0.3 }}>
                   <Image
                     src="/images/interior-design.png"
-                    alt="Office Location"
+                    alt="Localisation bureau"
                     width={500}
                     height={300}
                     className="rounded-lg object-cover w-full h-[300px]"
@@ -360,21 +355,21 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h2 className="text-2xl font-bold">Group C.M.R</h2>
-              <p className="text-gray-400">Kitchen & House Remodeling Experts</p>
+              <h2 className="text-2xl font-bold">CMR Rénovation & Design</h2>
+              <p className="text-gray-400">Experts en rénovation de cuisine & maison</p>
             </div>
             <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-              <Link href="/" className="hover:text-gray-300 transition-colors">
-                HOME
+              <Link href="/fr" className="hover:text-gray-300 transition-colors">
+                ACCUEIL
               </Link>
               <Link href="/about" className="hover:text-gray-300 transition-colors">
-                ABOUT US
+                À PROPOS
               </Link>
               <Link href="/services" className="hover:text-gray-300 transition-colors">
                 SERVICES
               </Link>
               <Link href="/careers" className="hover:text-gray-300 transition-colors">
-                CAREERS
+                CARRIÈRES
               </Link>
               <Link href="/contact" className="hover:text-gray-300 transition-colors">
                 CONTACT
@@ -382,7 +377,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© 2023 by Group C.M.R. All Rights Reserved</p>
+            <p>© 2023 par CMR Rénovation & Design. Tous droits réservés</p>
           </div>
         </div>
       </footer>
@@ -392,60 +387,60 @@ export default function Home() {
 
 const services = [
   {
-    title: "Kitchen Remodeling",
+    title: "Rénovation de cuisine",
     description:
-      "CMR Renovation & Design brings 60 years of combined expertise in kitchen remodeling. We offer high-quality countertops and cabinets, delivering exceptional value at the best prices.",
+      "CMR Rénovation & Design met à votre service 60 ans d'expertise combinée en rénovation de cuisine. Nous proposons des comptoirs et armoires de haute qualité, offrant une valeur exceptionnelle au meilleur prix.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1_huda6f97f0d3c02a210c242ae1377bb3d0_13926954_2000x0_resize_q75_h2_lanczos-PHGUPTuM1xtEXMH9nWAt8vlD7jCAVC.webp",
     slug: "kitchen-remodeling",
   },
   {
-    title: "Countertops",
+    title: "Comptoirs",
     description:
-      "Explore our wide range of high-quality countertops and cabinets designed to elevate the aesthetics and functionality of your kitchen.",
+      "Découvrez notre large gamme de comptoirs et armoires de haute qualité conçus pour sublimer l'esthétique et la fonctionnalité de votre cuisine.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1_hu0dbc26e62ba825c13a485aa2c3a878b6_25806228_1000x0_resize_q90_h2_lanczos_3-wLKF88Pl9hhRikokpbVws9lTA3ux2l.webp",
     slug: "countertops-cabinets",
   },
   {
-    title: "Flooring Solutions",
+    title: "Solutions de plancher",
     description:
-      "Discover our premium flooring solutions that combine elegance and durability. From hardwood to laminate, we offer diverse selection options.",
+      "Découvrez nos solutions de plancher haut de gamme alliant élégance et durabilité. Du bois franc au stratifié, nous offrons une grande variété d'options.",
     image: "/images/flooring-samples.png",
     slug: "flooring-solutions",
   },
   {
-    title: "Bathroom Renovation",
+    title: "Rénovation de salle de bain",
     description:
-      "Experience luxury and comfort with our custom bathroom renovation services. We ensure that every aspect of your bathroom exudes elegance.",
+      "Vivez le luxe et le confort avec nos services sur mesure de rénovation de salle de bain. Nous veillons à ce que chaque détail respire l'élégance.",
     image: "/images/modern-bathroom.png",
     slug: "bathroom-renovation",
   },
 ]
 
 const stats = [
-  { value: "60 Years", label: "of Combined Expertise" },
-  { value: "Exceptional", label: "Value" },
-  { value: "Unbeatable", label: "Quality" },
+  { value: "60 ans", label: "d'expertise combinée" },
+  { value: "Exceptionnelle", label: "Valeur" },
+  { value: "Inégalée", label: "Qualité" },
 ]
 
 const expertise = [
   {
-    title: "Project Planning",
+    title: "Planification de projet",
     description:
-      "From meticulous pre-construction planning to efficient design-build scheduling and precise estimating & budgeting, we lay the foundation for a successful remodeling project.",
+      "De la planification minutieuse à l'estimation précise et à la gestion efficace du calendrier, nous posons les bases d'un projet de rénovation réussi.",
     number: "01",
   },
   {
-    title: "Construction Excellence",
+    title: "Excellence en construction",
     description:
-      "With a focus on quality control, safety management, and subcontractor coordination, we ensure that the construction phase progresses seamlessly with superior workmanship.",
+      "Avec un accent sur le contrôle qualité, la sécurité et la coordination des sous-traitants, nous assurons un déroulement sans faille et un travail irréprochable.",
     number: "02",
   },
   {
-    title: "Project Completion",
+    title: "Livraison du projet",
     description:
-      "Upon project completion, we provide the necessary documentation including the certificate of occupancy, as-built documentation, and warranty, ensuring the highest standards.",
+      "À la fin du projet, nous fournissons tous les documents nécessaires (certificat, plans finaux, garantie) pour garantir les plus hauts standards.",
     number: "03",
   },
 ]
@@ -453,17 +448,17 @@ const expertise = [
 const testimonials = [
   {
     quote:
-      "CMR Renovation & Design transformed our kitchen into a stunning space that exceeded our expectations. Their attention to detail and quality craftsmanship is unmatched.",
+      "CMR Rénovation & Design a transformé notre cuisine en un espace magnifique qui a dépassé nos attentes. Leur souci du détail et la qualité de leur travail sont incomparables.",
     author: "B. GAGNON",
   },
   {
     quote:
-      "We are thrilled with the outcome of our kitchen remodel. CMR Renovation & Design's professionalism and dedication to customer satisfaction are truly commendable.",
+      "Nous sommes ravis du résultat de la rénovation de notre cuisine. Le professionnalisme et le dévouement de CMR Rénovation & Design à la satisfaction client sont remarquables.",
     author: "K. HENNAULT",
   },
   {
     quote:
-      "We highly recommend CMR Renovation & Design for their top-notch service and affordable yet stylish kitchen solutions. It has been a pleasure working with them.",
+      "Nous recommandons vivement CMR Rénovation & Design pour leur service de qualité et leurs solutions élégantes à prix abordable. Ce fut un plaisir de travailler avec eux.",
     author: "F. LEVESQUE",
   },
 ]
@@ -471,26 +466,26 @@ const testimonials = [
 const galleryImages = [
   {
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1_huda6f97f0d3c02a210c242ae1377bb3d0_13926954_2000x0_resize_q75_h2_lanczos-PHGUPTuM1xtEXMH9nWAt8vlD7jCAVC.webp",
-    alt: "Kitchen Design",
+    alt: "Cuisine design",
   },
   {
     src: "/images/modern-kitchen.png",
-    alt: "Modern Kitchen Design",
+    alt: "Cuisine moderne",
   },
   {
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_huf29b621bda1ff3cde227c3f265269e47_12946539_1000x0_resize_q90_h2_lanczos-c0WhlSd0a5RKD9bDJPQdbtIVYMvaFd.webp",
-    alt: "Kitchen Design",
+    alt: "Cuisine design",
   },
   {
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PDG_6037_38_39_40_41_Natural-1536x1025.jpg-2GEoxwmeuFbkwr370V7VfOcL2YDnkY.jpeg",
-    alt: "Kitchen Design",
+    alt: "Cuisine design",
   },
   {
     src: "/images/interior-design.png",
-    alt: "Interior Design",
+    alt: "Design intérieur",
   },
   {
     src: "/images/modern-bathroom.png",
-    alt: "Modern Bathroom Design",
+    alt: "Salle de bain moderne",
   },
-]
+] 

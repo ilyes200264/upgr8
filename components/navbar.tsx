@@ -6,12 +6,14 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
+import { usePathname, useRouter } from "next/navigation"
 
 export default function EnhancedNavbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -175,17 +177,51 @@ export default function EnhancedNavbar() {
     />
   )
 
-  // Services menu items
+  const isFrench = pathname.startsWith("/fr")
+
+  // Labels dynamiques selon la langue
+  const navLabels = {
+    home: isFrench ? "ACCUEIL" : "HOME",
+    about: isFrench ? "À PROPOS" : "ABOUT",
+    services: isFrench ? "SERVICES" : "SERVICES",
+    gallery: isFrench ? "GALERIE" : "GALLERY",
+    careers: isFrench ? "CARRIÈRES" : "CAREERS",
+    quote: isFrench ? "Obtenir une soumission gratuite" : "Get A Free Quote",
+    // Sous-menu services
+    kitchen: isFrench ? "Rénovation de cuisine" : "Kitchen Remodeling",
+    countertops: isFrench ? "Comptoirs" : "Countertops",
+    bathroom: isFrench ? "Rénovation de salle de bain" : "Bathroom Renovation",
+    flooring: isFrench ? "Solutions de plancher" : "Flooring Solutions",
+  }
+
+  // Services menu items dynamiques
   const servicesItems = [
-    { name: "Kitchen Remodeling", path: "/services/kitchen-remodeling" },
-    { name: "Countertops & Cabinets", path: "/services/countertops-cabinets" },
-    { name: "Bathroom Renovation", path: "/services/bathroom-renovation" },
-    { name: "Flooring Solutions", path: "/services/flooring-solutions" },
-    { name: "Interior Design", path: "/services/interior-design" }
+    { name: navLabels.kitchen, path: "/services/kitchen-remodeling" },
+    { name: navLabels.countertops, path: "/services/countertops-cabinets" },
+    { name: navLabels.bathroom, path: "/services/bathroom-renovation" },
+    { name: navLabels.flooring, path: "/services/flooring-solutions" }
   ]
 
   // Calculate header height based on scroll state
   const headerHeight = isScrolled ? "h-16" : "h-20";
+
+  // Liste des pages traduites
+  const frPages = ["about", "services", "gallery", "careers", "contact"]
+
+  // Générer le lien FR
+  let frLink = "/fr"
+  if (pathname === "/") frLink = "/fr"
+  else {
+    const match = pathname.match(/^\/(\w+)/)
+    if (match && frPages.includes(match[1])) frLink = `/fr/${match[1]}`
+  }
+
+  // Générer le lien EN
+  let enLink = "/"
+  if (pathname.startsWith("/fr")) {
+    const match = pathname.match(/^\/fr\/(\w+)/)
+    if (match && frPages.includes(match[1])) enLink = `/${match[1]}`
+  }
 
   return (
     <motion.header
@@ -274,11 +310,11 @@ export default function EnhancedNavbar() {
           {/* Desktop Navigation - Adjusted to accommodate bigger logo */}
           <nav className="hidden md:flex items-center space-x-4 lg:space-x-8" ref={dropdownRef}>
             {[
-              { name: "HOME", path: "/" },
-              { name: "ABOUT", path: "/about" },
-              { name: "SERVICES", dropdown: true, items: servicesItems },
-              { name: "GALLERY", path: "/gallery" },
-              { name: "CONTACT", path: "/contact" }
+              { name: navLabels.home, path: isFrench ? "/fr" : "/" },
+              { name: navLabels.about, path: isFrench ? "/fr/about" : "/about" },
+              { name: navLabels.services, dropdown: true, items: servicesItems },
+              { name: navLabels.gallery, path: isFrench ? "/fr/gallery" : "/gallery" },
+              { name: navLabels.careers, path: isFrench ? "/fr/careers" : "/careers" }
             ].map((item, i) =>
               item.dropdown ? (
                 <motion.div 
@@ -377,7 +413,7 @@ export default function EnhancedNavbar() {
 
             {/* Call-to-action Button */}
             <motion.div variants={navItemVariants}>
-              <Link href="/get-a-quote">
+              <Link href={isFrench ? "/fr/get-a-quote" : "/get-a-quote"}>
                 <Button 
                   className={`relative overflow-hidden group ${
                     isScrolled
@@ -389,7 +425,7 @@ export default function EnhancedNavbar() {
                     whileHover={{ y: -30 }}
                     className="block transition-transform duration-300"
                   >
-                    Get A Free Quote
+                    {navLabels.quote}
                   </motion.span>
                   <motion.span
                     className="absolute inset-0 flex items-center justify-center"
@@ -397,9 +433,26 @@ export default function EnhancedNavbar() {
                     whileHover={{ y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    Get A Free Quote
+                    {navLabels.quote}
                   </motion.span>
                 </Button>
+              </Link>
+            </motion.div>
+
+            {/* Language Switcher */}
+            <motion.div variants={navItemVariants} className="pl-2 flex items-center">
+              <Link
+                href={frLink}
+                className={`font-medium text-xs px-2 py-1 rounded transition-colors ${isScrolled ? "text-black hover:bg-gray-100" : "text-white hover:bg-white/10"}`}
+              >
+                FR
+              </Link>
+              <span className={`mx-1 ${isScrolled ? "text-gray-400" : "text-white/60"}`}>|</span>
+              <Link
+                href={enLink}
+                className={`font-medium text-xs px-2 py-1 rounded transition-colors ${isScrolled ? "text-black hover:bg-gray-100" : "text-white hover:bg-white/10"}`}
+              >
+                EN
               </Link>
             </motion.div>
           </nav>
@@ -451,10 +504,10 @@ export default function EnhancedNavbar() {
           >
             <div className="flex flex-col p-6 max-h-[80vh] overflow-y-auto">
               {[
-                { name: "HOME", path: "/" },
-                { name: "ABOUT", path: "/about" },
-                { name: "GALLERY", path: "/gallery" },
-                { name: "CONTACT", path: "/contact" },
+                { name: navLabels.home, path: isFrench ? "/fr" : "/" },
+                { name: navLabels.about, path: isFrench ? "/fr/about" : "/about" },
+                { name: navLabels.gallery, path: isFrench ? "/fr/gallery" : "/gallery" },
+                { name: navLabels.careers, path: isFrench ? "/fr/careers" : "/careers" },
               ].map((item, i) => (
                 <motion.div
                   key={item.name}
@@ -483,7 +536,7 @@ export default function EnhancedNavbar() {
                   onClick={() => toggleDropdown("MOBILE_SERVICES")}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span>SERVICES</span>
+                  <span>{navLabels.services}</span>
                   <motion.div
                     animate={{ rotate: activeDropdown === "MOBILE_SERVICES" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -531,9 +584,9 @@ export default function EnhancedNavbar() {
                 variants={menuItemVariants}
                 className="pt-4"
               >
-                <Link href="/get-a-quote" onClick={() => setIsMenuOpen(false)}>
+                <Link href={isFrench ? "/fr/get-a-quote" : "/get-a-quote"}>
                   <Button className="w-full bg-black text-white hover:bg-gray-800 font-medium py-6">
-                    GET A FREE QUOTE
+                    {navLabels.quote}
                   </Button>
                 </Link>
               </motion.div>
